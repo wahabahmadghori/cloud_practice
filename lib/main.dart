@@ -1,7 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'models/user_model.dart';
-import 'screens/add_user.dart';
+import 'screens/display_users.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -22,7 +21,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       // A widget which will be started on application startup
-      home: AddUser(title: 'Flutter Demo Home Page'),
+      home: DisplayUsers(),
     );
   }
 }
