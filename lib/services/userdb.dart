@@ -6,6 +6,6 @@ class UserDb {
 
   Future<void> addUser(UserModel user) async {
     // Call the user's CollectionReference to add a new user
-    return await users.add(UserModel.toMap(user)).then((value) => print("User Added")).catchError((error) => print("Failed to add user: $error"));
+    await users.add(UserModel.toMap(user)).then((value) => print("User Added")).catchError((error) => print("Failed to add user: $error"));
   }
 }
