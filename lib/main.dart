@@ -43,7 +43,7 @@ class _MyHomePageState extends State<MyHomePage> {
     TextEditingController _fullNameController = TextEditingController();
     TextEditingController _companyController = TextEditingController();
     TextEditingController _ageController = TextEditingController();
-    bool isProcessing = true;
+    bool isProcessing = false;
     return Scaffold(
       appBar: AppBar(
         // The title text which will be shown on the action bar
