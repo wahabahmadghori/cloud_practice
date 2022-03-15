@@ -25,7 +25,7 @@ class DisplayUsers extends StatelessWidget {
               return Card(
                 child: ListTile(
                   contentPadding: const EdgeInsets.symmetric(horizontal: 24),
-                  leading: const Text("1"), //show index number
+                  leading: const Icon(Icons.person), //show index number
                   title: Center(child: Text(data['fullName'])),
                   trailing: Text(data['company']),
                 ),
