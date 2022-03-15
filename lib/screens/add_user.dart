@@ -3,10 +3,6 @@ import '../models/user_model.dart';
 import '../services/userdb.dart';
 
 class AddUser extends StatefulWidget {
-  final String title;
-
-  const AddUser({required this.title});
-
   @override
   _AddUserState createState() => _AddUserState();
 }
@@ -22,7 +18,7 @@ class _AddUserState extends State<AddUser> {
     return Scaffold(
       appBar: AppBar(
         // The title text which will be shown on the action bar
-        title: Text(widget.title),
+        title: Text('Company App'),
       ),
       body: SingleChildScrollView(
         child: Column(

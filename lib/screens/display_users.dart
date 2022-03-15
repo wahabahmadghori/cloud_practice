@@ -1,6 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
+import 'add_user.dart';
+
 class DisplayUsers extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -33,6 +35,16 @@ class DisplayUsers extends StatelessWidget {
             }).toList(),
           );
         },
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (_context) => AddUser(),
+            ),
+          );
+        },
+        child: Icon(Icons.add),
       ),
     );
   }
