@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'models/user_model.dart';
+import 'services/userdb.dart';
 
 void main() => runApp(MyApp());
 
@@ -27,14 +29,21 @@ class MyHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    UserDb userDb = UserDb();
+    var user = UserModel(fullName: "Yohan", age: 21, company: 'BSN');
     return Scaffold(
       appBar: AppBar(
         // The title text which will be shown on the action bar
         title: Text(title),
       ),
       body: Center(
-        child: Text(
-          'Hello, World!',
+        child: ElevatedButton(
+          onPressed: () {
+            userDb.addUser(user);
+          },
+          child: Text(
+            'Hello, World!',
+          ),
         ),
       ),
     );
