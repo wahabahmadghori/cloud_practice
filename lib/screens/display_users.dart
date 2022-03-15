@@ -7,25 +7,15 @@ class DisplayUsers extends StatelessWidget {
     CollectionReference users = FirebaseFirestore.instance.collection('users');
 
     return Scaffold(
-      body: FutureBuilder<DocumentSnapshot>(
-        future: users.doc().get(),
-        builder: (BuildContext context, AsyncSnapshot<DocumentSnapshot> snapshot) {
-          if (snapshot.hasError) {
-            return Text("Something went wrong");
-          }
-
-          if (snapshot.hasData && !snapshot.data!.exists) {
-            return Text("Document does not exist");
-          }
-
-          if (snapshot.connectionState == ConnectionState.done) {
-            Map<String, dynamic> data = snapshot.data!.data() as Map<String, dynamic>;
-            return Text("Full Name: ${data['fullName']} ${data['company']}");
-          }
-
-          return Text("loading");
-        },
-      ),
+      body: StreamBuilder(
+          stream: users.snapshots(),
+          builder: (context, snapshot) {
+            if (!snapshot.hasData) {
+              return new Text("Loading");
+            }
+            var userDocument = snapshot.data;
+            return new Text('Hello');
+          }),
     );
   }
 }
