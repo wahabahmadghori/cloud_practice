@@ -27,29 +27,193 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class MyHomePage extends StatelessWidget {
+class MyHomePage extends StatefulWidget {
   final String title;
 
   const MyHomePage({required this.title});
 
   @override
+  _MyHomePageState createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  @override
   Widget build(BuildContext context) {
     UserDb userDb = UserDb();
-    var user = UserModel(fullName: "Yohan", age: 21, company: 'BSN');
+    TextEditingController _fullNameController = TextEditingController();
+    TextEditingController _companyController = TextEditingController();
+    TextEditingController _ageController = TextEditingController();
+    bool isProcessing = false;
     return Scaffold(
       appBar: AppBar(
         // The title text which will be shown on the action bar
-        title: Text(title),
+        title: Text(widget.title),
       ),
-      body: Center(
-        child: ElevatedButton(
-          onPressed: () {
-            userDb.addUser(user);
-          },
-          child: Text(
-            'Hello, World!',
+      body: Column(
+        children: [
+          TextFormField(
+            controller: _fullNameController,
+            style: TextStyle(
+              fontSize: 24,
+              color: Colors.blue,
+              fontWeight: FontWeight.w600,
+            ),
+            decoration: InputDecoration(
+              focusColor: Colors.white,
+              //add prefix icon
+              prefixIcon: Icon(
+                Icons.person_outline_rounded,
+                color: Colors.grey,
+              ),
+
+              errorText: "Error",
+
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(10.0),
+              ),
+
+              focusedBorder: OutlineInputBorder(
+                borderSide: const BorderSide(color: Colors.blue, width: 1.0),
+                borderRadius: BorderRadius.circular(10.0),
+              ),
+              fillColor: Colors.grey,
+
+              hintText: "FullName",
+
+              //make hint text
+              hintStyle: TextStyle(
+                color: Colors.grey,
+                fontSize: 16,
+                fontWeight: FontWeight.w400,
+              ),
+
+              //create lable
+              labelText: 'Email/Mobile',
+              //lable style
+              labelStyle: TextStyle(
+                color: Colors.grey,
+                fontSize: 16,
+                fontWeight: FontWeight.w400,
+              ),
+            ),
           ),
-        ),
+          SizedBox(
+            height: 20,
+          ),
+          TextFormField(
+            controller: _companyController,
+            style: TextStyle(
+              fontSize: 24,
+              color: Colors.blue,
+              fontWeight: FontWeight.w600,
+            ),
+            decoration: InputDecoration(
+              focusColor: Colors.white,
+              //add prefix icon
+              prefixIcon: Icon(
+                Icons.person_outline_rounded,
+                color: Colors.grey,
+              ),
+
+              errorText: "Error",
+
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(10.0),
+              ),
+
+              focusedBorder: OutlineInputBorder(
+                borderSide: const BorderSide(color: Colors.blue, width: 1.0),
+                borderRadius: BorderRadius.circular(10.0),
+              ),
+              fillColor: Colors.grey,
+
+              hintText: "FullName",
+
+              //make hint text
+              hintStyle: TextStyle(
+                color: Colors.grey,
+                fontSize: 16,
+                fontWeight: FontWeight.w400,
+              ),
+
+              //create lable
+              labelText: 'Email/Mobile',
+              //lable style
+              labelStyle: TextStyle(
+                color: Colors.grey,
+                fontSize: 16,
+                fontWeight: FontWeight.w400,
+              ),
+            ),
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          TextFormField(
+            controller: _ageController,
+            style: TextStyle(
+              fontSize: 24,
+              color: Colors.blue,
+              fontWeight: FontWeight.w600,
+            ),
+            decoration: InputDecoration(
+              focusColor: Colors.white,
+              //add prefix icon
+              prefixIcon: Icon(
+                Icons.person_outline_rounded,
+                color: Colors.grey,
+              ),
+
+              errorText: "Error",
+
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(10.0),
+              ),
+
+              focusedBorder: OutlineInputBorder(
+                borderSide: const BorderSide(color: Colors.blue, width: 1.0),
+                borderRadius: BorderRadius.circular(10.0),
+              ),
+              fillColor: Colors.grey,
+
+              hintText: "FullName",
+
+              //make hint text
+              hintStyle: TextStyle(
+                color: Colors.grey,
+                fontSize: 16,
+                fontWeight: FontWeight.w400,
+              ),
+
+              //create lable
+              labelText: 'Email/Mobile',
+              //lable style
+              labelStyle: TextStyle(
+                color: Colors.grey,
+                fontSize: 16,
+                fontWeight: FontWeight.w400,
+              ),
+            ),
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          isProcessing
+              ? CircularProgressIndicator()
+              : ElevatedButton(
+                  onPressed: () {
+                    var user = UserModel(fullName: _fullNameController.text, age: int.parse(_ageController.text), company: _companyController.text);
+                    setState(() {
+                      isProcessing = true;
+                    });
+                    userDb.addUser(user);
+                    isProcessing = false;
+                  },
+                  child: Text(
+                    'SAVE',
+                  ),
+                ),
+        ],
       ),
     );
   }
