@@ -23,7 +23,7 @@ dependencies:
   firebase_auth: ^3.3.8
   firebase_storage: ^10.2.8
   firebase_core: ^1.12.0
-  firebase_storage_web: any
+  firebase_storage_web: ^3.2.9
   firebase_analytics: any
 dev_dependencies:
   flutter_test:
