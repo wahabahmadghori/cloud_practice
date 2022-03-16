@@ -291,18 +291,6 @@ class _AddQuestionState extends State<AddQuestion> {
                   ),
                 ),
               ),
-              Container(
-                width: double.maxFinite,
-                padding: EdgeInsets.symmetric(
-                  horizontal: 20.0,
-                ),
-                child: ElevatedButton(
-                  onPressed: () async {},
-                  child: Text(
-                    'SAVE',
-                  ),
-                ),
-              ),
             ],
           ),
         ),
