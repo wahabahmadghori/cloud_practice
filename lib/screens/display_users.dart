@@ -9,32 +9,34 @@ class DisplayUsers extends StatelessWidget {
     CollectionReference users = FirebaseFirestore.instance.collection('users');
 
     return Scaffold(
-      body: StreamBuilder<QuerySnapshot>(
-        stream: users.snapshots(),
-        builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
-          if (snapshot.hasError) {
-            return const Text('Something went wrong');
-          }
+      body: SafeArea(
+        child: StreamBuilder<QuerySnapshot>(
+          stream: users.snapshots(),
+          builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
+            if (snapshot.hasError) {
+              return const Text('Something went wrong');
+            }
 
-          if (snapshot.connectionState == ConnectionState.waiting) {
-            return const CircularProgressIndicator();
-          }
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return const CircularProgressIndicator();
+            }
 
-          return ListView(
-            shrinkWrap: true,
-            children: snapshot.data!.docs.map((DocumentSnapshot document) {
-              Map<String, dynamic> data = document.data()! as Map<String, dynamic>;
-              return Card(
-                child: ListTile(
-                  contentPadding: const EdgeInsets.symmetric(horizontal: 24),
-                  leading: const Icon(Icons.person), //show index number
-                  title: Center(child: Text(data['fullName'])),
-                  trailing: Text(data['company']),
-                ),
-              );
-            }).toList(),
-          );
-        },
+            return ListView(
+              shrinkWrap: true,
+              children: snapshot.data!.docs.map((DocumentSnapshot document) {
+                Map<String, dynamic> data = document.data()! as Map<String, dynamic>;
+                return Card(
+                  child: ListTile(
+                    contentPadding: const EdgeInsets.symmetric(horizontal: 24),
+                    leading: const Icon(Icons.person), //show index number
+                    title: Center(child: Text(data['fullName'])),
+                    trailing: Text(data['company']),
+                  ),
+                );
+              }).toList(),
+            );
+          },
+        ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
