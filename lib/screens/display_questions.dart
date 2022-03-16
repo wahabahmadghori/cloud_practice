@@ -27,30 +27,35 @@ class DisplayQuestions extends StatelessWidget {
               shrinkWrap: true,
               children: snapshot.data!.docs.map((DocumentSnapshot document) {
                 Map<String, dynamic> data = document.data()! as Map<String, dynamic>;
-                return Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 10),
-                  child: Card(
+                return Card(
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
                     child: Column(children: [
                       Container(
+                        width: MediaQuery.of(context).size.width,
                         padding: EdgeInsets.all(8),
                         child: Text(data['question']),
                       ),
                       Container(
+                        width: MediaQuery.of(context).size.width,
                         padding: EdgeInsets.all(8),
                         decoration: BoxDecoration(borderRadius: BorderRadius.circular(50), color: data['optionA'] == data['answer'] ? Colors.green : Colors.grey),
                         child: Text(data['optionA']),
                       ),
                       Container(
-                        decoration: BoxDecoration(borderRadius: BorderRadius.circular(50), color: data['optionA'] == data['answer'] ? Colors.green : Colors.grey),
+                        width: MediaQuery.of(context).size.width,
+                        decoration: BoxDecoration(borderRadius: BorderRadius.circular(50), color: data['optionB'] == data['answer'] ? Colors.green : Colors.grey),
                         child: Text(data['optionB']),
                       ),
                       Container(
+                        width: MediaQuery.of(context).size.width,
                         padding: EdgeInsets.all(8),
-                        decoration: BoxDecoration(borderRadius: BorderRadius.circular(50), color: data['optionA'] == data['answer'] ? Colors.green : Colors.grey),
+                        decoration: BoxDecoration(borderRadius: BorderRadius.circular(50), color: data['optionC'] == data['answer'] ? Colors.green : Colors.grey),
                         child: Text(data['optionC']),
                       ),
                       Container(
-                        decoration: BoxDecoration(borderRadius: BorderRadius.circular(50), color: data['optionA'] == data['answer'] ? Colors.green : Colors.grey),
+                        width: MediaQuery.of(context).size.width,
+                        decoration: BoxDecoration(borderRadius: BorderRadius.circular(50), color: data['optionD'] == data['answer'] ? Colors.green : Colors.grey),
                         child: Text(data['optionD']),
                       ),
                     ]),
