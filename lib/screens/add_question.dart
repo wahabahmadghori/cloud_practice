@@ -323,7 +323,15 @@ class _AddQuestionState extends State<AddQuestion> {
                               isProcessing = true;
                             });
                             await questiondb.addUser(user);
-                            isProcessing = false;
+                            setState(() {
+                              isProcessing = false;
+                              _questionController.text = '';
+                              _optionAController.text = '';
+                              _optionBController.text = '';
+                              _optionCController.text = '';
+                              _optionDController.text = '';
+                              _answerController.text = '';
+                            });
                           },
                           child: Padding(
                             padding: const EdgeInsets.all(8.0),
