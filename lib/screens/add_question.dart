@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import '../models/question_model.dart';
+import '../services/questiondb.dart';
 
 class AddQuestion extends StatefulWidget {
   _AddQuestionState createState() => _AddQuestionState();
@@ -11,6 +13,8 @@ class _AddQuestionState extends State<AddQuestion> {
   TextEditingController _optionCController = TextEditingController();
   TextEditingController _optionDController = TextEditingController();
   TextEditingController _answerController = TextEditingController();
+  bool isProcessing = false;
+  QuestionDb questiondb = QuestionDb();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,7 +26,7 @@ class _AddQuestionState extends State<AddQuestion> {
               Text(
                 'Add New Question',
                 style: TextStyle(
-                  fontSize: 28,
+                  fontSize: 18,
                   fontWeight: FontWeight.w600,
                 ),
               ),
@@ -304,6 +308,27 @@ class _AddQuestionState extends State<AddQuestion> {
                   ),
                 ),
               ),
+              isProcessing
+                  ? CircularProgressIndicator()
+                  : Container(
+                      width: double.maxFinite,
+                      padding: EdgeInsets.symmetric(
+                        horizontal: 20.0,
+                      ),
+                      child: ElevatedButton(
+                        onPressed: () async {
+                          var user = QuestionModel(question: _questionController.text, optionA: _optionAController.text, optionB: _optionBController.text, optionC: _optionCController.text, optionD: _optionDController.text, answer: _answerController.text);
+                          setState(() {
+                            isProcessing = true;
+                          });
+                          await questiondb.addUser(user);
+                          isProcessing = false;
+                        },
+                        child: Text(
+                          'SAVE',
+                        ),
+                      ),
+                    ),
             ],
           ),
         ),
