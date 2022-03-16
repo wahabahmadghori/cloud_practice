@@ -2,8 +2,10 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 import 'add_user.dart';
+import '../services/userdb.dart';
 
 class DisplayUsers extends StatelessWidget {
+  UserDb userDb = UserDb();
   @override
   Widget build(BuildContext context) {
     CollectionReference users = FirebaseFirestore.instance.collection('users');
@@ -28,9 +30,13 @@ class DisplayUsers extends StatelessWidget {
                 return Card(
                   child: ListTile(
                     contentPadding: const EdgeInsets.symmetric(horizontal: 24),
-                    leading: const Icon(Icons.person), //show index number
+                    trailing: IconButton(
+                        onPressed: () {
+                          userDb.deleteUser(userId: document.id.toString());
+                        },
+                        icon: Icon(Icons.delete)), //show index number
                     title: Center(child: Text(data['fullName'])),
-                    trailing: Text(data['company']),
+                    subtitle: Text(data['company']),
                   ),
                 );
               }).toList(),
