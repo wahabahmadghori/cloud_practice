@@ -37,33 +37,59 @@ class DisplayQuestions extends StatelessWidget {
                         margin: EdgeInsets.all(8),
                         child: Text(data['question']),
                       ),
-                      Container(
-                        width: MediaQuery.of(context).size.width,
-                        padding: EdgeInsets.all(8),
-                        margin: EdgeInsets.all(8),
-                        decoration: BoxDecoration(borderRadius: BorderRadius.circular(50), color: data['optionA'] == data['answer'] ? Colors.greenAccent : Colors.redAccent),
-                        child: Text(data['optionA']),
+                      InkWell(
+                        onTap: () {},
+                        child: Ink(
+                          color: data['optionA'] == data['answer'] ? Colors.greenAccent : Colors.redAccent,
+                          child: Container(
+                            width: MediaQuery.of(context).size.width,
+                            padding: EdgeInsets.all(8),
+                            margin: EdgeInsets.all(8),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(50),
+                            ),
+                            child: Text(data['optionA']),
+                          ),
+                        ),
                       ),
-                      Container(
-                        padding: EdgeInsets.all(8),
-                        margin: EdgeInsets.all(8),
-                        width: MediaQuery.of(context).size.width,
-                        decoration: BoxDecoration(borderRadius: BorderRadius.circular(50), color: data['optionB'] == data['answer'] ? Colors.greenAccent : Colors.redAccent),
-                        child: Text(data['optionB']),
+                      InkWell(
+                        onTap: () {},
+                        child: Ink(
+                          color: data['optionA'] == data['answer'] ? Colors.greenAccent : Colors.redAccent,
+                          child: Container(
+                            padding: EdgeInsets.all(8),
+                            margin: EdgeInsets.all(8),
+                            width: MediaQuery.of(context).size.width,
+                            decoration: BoxDecoration(borderRadius: BorderRadius.circular(50), color: data['optionB'] == data['answer'] ? Colors.greenAccent : Colors.redAccent),
+                            child: Text(data['optionB']),
+                          ),
+                        ),
                       ),
-                      Container(
-                        width: MediaQuery.of(context).size.width,
-                        padding: EdgeInsets.all(8),
-                        margin: EdgeInsets.all(8),
-                        decoration: BoxDecoration(borderRadius: BorderRadius.circular(50), color: data['optionC'] == data['answer'] ? Colors.greenAccent : Colors.redAccent),
-                        child: Text(data['optionC']),
+                      InkWell(
+                        onTap: () {},
+                        child: Ink(
+                          color: data['optionA'] == data['answer'] ? Colors.greenAccent : Colors.redAccent,
+                          child: Container(
+                            width: MediaQuery.of(context).size.width,
+                            padding: EdgeInsets.all(8),
+                            margin: EdgeInsets.all(8),
+                            decoration: BoxDecoration(borderRadius: BorderRadius.circular(50), color: data['optionC'] == data['answer'] ? Colors.greenAccent : Colors.redAccent),
+                            child: Text(data['optionC']),
+                          ),
+                        ),
                       ),
-                      Container(
-                        width: MediaQuery.of(context).size.width,
-                        padding: EdgeInsets.all(8),
-                        margin: EdgeInsets.all(8),
-                        decoration: BoxDecoration(borderRadius: BorderRadius.circular(50), color: data['optionD'] == data['answer'] ? Colors.greenAccent : Colors.redAccent),
-                        child: Text(data['optionD']),
+                      InkWell(
+                        onTap: () {},
+                        child: Ink(
+                          color: data['optionA'] == data['answer'] ? Colors.greenAccent : Colors.redAccent,
+                          child: Container(
+                            width: MediaQuery.of(context).size.width,
+                            padding: EdgeInsets.all(8),
+                            margin: EdgeInsets.all(8),
+                            decoration: BoxDecoration(borderRadius: BorderRadius.circular(50), color: data['optionD'] == data['answer'] ? Colors.greenAccent : Colors.redAccent),
+                            child: Text(data['optionD']),
+                          ),
+                        ),
                       ),
                     ]),
                   ),
