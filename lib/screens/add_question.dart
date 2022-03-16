@@ -30,6 +30,8 @@ class _AddQuestionState extends State<AddQuestion> {
                 padding: const EdgeInsets.all(8.0),
                 child: TextFormField(
                   controller: _questionController,
+                  minLines: 2,
+                  maxLines: 4,
                   style: TextStyle(
                     fontSize: 24,
                     color: Colors.grey,
@@ -171,7 +173,7 @@ class _AddQuestionState extends State<AddQuestion> {
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: TextFormField(
-                        controller: _optionAController,
+                        controller: _optionCController,
                         style: TextStyle(
                           fontSize: 18,
                           color: Colors.grey,
@@ -216,7 +218,7 @@ class _AddQuestionState extends State<AddQuestion> {
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: TextFormField(
-                        controller: _optionBController,
+                        controller: _optionDController,
                         style: TextStyle(
                           fontSize: 18,
                           color: Colors.grey,
@@ -258,6 +260,49 @@ class _AddQuestionState extends State<AddQuestion> {
                     ),
                   ),
                 ],
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: TextFormField(
+                  controller: _optionAController,
+                  style: TextStyle(
+                    fontSize: 18,
+                    color: Colors.grey,
+                    fontWeight: FontWeight.w600,
+                  ),
+                  decoration: InputDecoration(
+                    focusColor: Colors.white,
+                    //add prefix icon
+                    prefixIcon: Icon(
+                      Icons.person_outline_rounded,
+                    ),
+
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10.0),
+                    ),
+
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: const BorderSide(color: Colors.blue, width: 1.0),
+                      borderRadius: BorderRadius.circular(10.0),
+                    ),
+
+                    hintText: "Type Answer...",
+
+                    //make hint text
+                    hintStyle: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w400,
+                    ),
+
+                    //create lable
+                    labelText: 'Answer',
+                    //lable style
+                    labelStyle: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w400,
+                    ),
+                  ),
+                ),
               ),
             ],
           ),
