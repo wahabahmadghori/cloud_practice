@@ -1,5 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'https://flutlab.io/root/app/lib/screens/display_questions.dart';
 import 'screens/add_question.dart';
 import 'screens/display_users.dart';
 
@@ -23,7 +24,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       // A widget which will be started on application startup
-      home: AddQuestion(),
+      home: DisplayQuestions(),
     );
   }
 }

@@ -1,10 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
-import 'add_user.dart';
+import 'add_question.dart';
 import '../services/userdb.dart';
 
-class DisplayUsers extends StatelessWidget {
+class DisplayQuestions extends StatelessWidget {
   UserDb userDb = UserDb();
   @override
   Widget build(BuildContext context) {
@@ -65,7 +65,7 @@ class DisplayUsers extends StatelessWidget {
         onPressed: () {
           Navigator.of(context).push(
             MaterialPageRoute(
-              builder: (_context) => AddUser(),
+              builder: (_context) => AddQuestion(),
             ),
           );
         },
