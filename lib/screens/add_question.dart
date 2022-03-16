@@ -17,7 +17,15 @@ class _AddQuestionState extends State<AddQuestion> {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
-            children: [],
+            children: [
+              Text(
+                'Add New Question',
+                style: TextStyle(
+                  fontSize: 36,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+            ],
           ),
         ),
       ),
