@@ -70,84 +70,89 @@ class _AddQuestionState extends State<AddQuestion> {
                 ),
               ),
               Row(
+                mainAxisSize: MainAxisSize.min,
                 children: [
-                  TextFormField(
-                    controller: _optionAController,
-                    style: TextStyle(
-                      fontSize: 18,
-                      color: Colors.grey,
-                      fontWeight: FontWeight.w600,
-                    ),
-                    decoration: InputDecoration(
-                      focusColor: Colors.white,
-                      //add prefix icon
-                      prefixIcon: Icon(
-                        Icons.person_outline_rounded,
+                  Flexible(
+                    child: TextFormField(
+                      controller: _optionAController,
+                      style: TextStyle(
+                        fontSize: 18,
+                        color: Colors.grey,
+                        fontWeight: FontWeight.w600,
                       ),
+                      decoration: InputDecoration(
+                        focusColor: Colors.white,
+                        //add prefix icon
+                        prefixIcon: Icon(
+                          Icons.person_outline_rounded,
+                        ),
 
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10.0),
-                      ),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10.0),
+                        ),
 
-                      focusedBorder: OutlineInputBorder(
-                        borderSide: const BorderSide(color: Colors.blue, width: 1.0),
-                        borderRadius: BorderRadius.circular(10.0),
-                      ),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: const BorderSide(color: Colors.blue, width: 1.0),
+                          borderRadius: BorderRadius.circular(10.0),
+                        ),
 
-                      hintText: "Type OptionA...",
+                        hintText: "Type OptionA...",
 
-                      //make hint text
-                      hintStyle: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w400,
-                      ),
+                        //make hint text
+                        hintStyle: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w400,
+                        ),
 
-                      //create lable
-                      labelText: 'A',
-                      //lable style
-                      labelStyle: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w400,
+                        //create lable
+                        labelText: 'A',
+                        //lable style
+                        labelStyle: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w400,
+                        ),
                       ),
                     ),
                   ),
-                  TextFormField(
-                    controller: _optionBController,
-                    style: TextStyle(
-                      fontSize: 18,
-                      color: Colors.grey,
-                      fontWeight: FontWeight.w600,
-                    ),
-                    decoration: InputDecoration(
-                      focusColor: Colors.white,
-                      //add prefix icon
-                      prefixIcon: Icon(
-                        Icons.person_outline_rounded,
+                  Flexible(
+                    child: TextFormField(
+                      controller: _optionBController,
+                      style: TextStyle(
+                        fontSize: 18,
+                        color: Colors.grey,
+                        fontWeight: FontWeight.w600,
                       ),
+                      decoration: InputDecoration(
+                        focusColor: Colors.white,
+                        //add prefix icon
+                        prefixIcon: Icon(
+                          Icons.person_outline_rounded,
+                        ),
 
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10.0),
-                      ),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10.0),
+                        ),
 
-                      focusedBorder: OutlineInputBorder(
-                        borderSide: const BorderSide(color: Colors.blue, width: 1.0),
-                        borderRadius: BorderRadius.circular(10.0),
-                      ),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: const BorderSide(color: Colors.blue, width: 1.0),
+                          borderRadius: BorderRadius.circular(10.0),
+                        ),
 
-                      hintText: "Type OptionB...",
+                        hintText: "Type OptionB...",
 
-                      //make hint text
-                      hintStyle: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w400,
-                      ),
+                        //make hint text
+                        hintStyle: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w400,
+                        ),
 
-                      //create lable
-                      labelText: 'B',
-                      //lable style
-                      labelStyle: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w400,
+                        //create lable
+                        labelText: 'B',
+                        //lable style
+                        labelStyle: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w400,
+                        ),
                       ),
                     ),
                   ),
