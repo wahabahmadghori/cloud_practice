@@ -30,7 +30,8 @@ class _AddQuestionState extends State<AddQuestion> {
                 padding: const EdgeInsets.all(8.0),
                 child: TextFormField(
                   controller: _questionController,
-                  minLines: 3,
+                  minLines: 2,
+                  maxLines: 4,
                   style: TextStyle(
                     fontSize: 24,
                     color: Colors.grey,
