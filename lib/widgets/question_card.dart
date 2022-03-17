@@ -12,7 +12,8 @@ class _QuestionCardState extends State<QuestionCard> {
   @override
   Widget build(BuildContext context) {
     return Card(
-      color: Colors.blue[100]!,
+      clipBehavior: Clip.antiAlias,
+      color: Colors.blue[50]!,
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(children: [
@@ -20,7 +21,7 @@ class _QuestionCardState extends State<QuestionCard> {
             width: MediaQuery.of(context).size.width,
             padding: EdgeInsets.all(8),
             margin: EdgeInsets.all(8),
-            decoration: BoxDecoration(color: Colors.blue, borderRadius: BorderRadius.circular(50)),
+            decoration: BoxDecoration(color: Colors.blue, borderRadius: BorderRadius.circular(10)),
             child: Text(
               widget.data['question'],
               style: TextStyle(color: Colors.white),

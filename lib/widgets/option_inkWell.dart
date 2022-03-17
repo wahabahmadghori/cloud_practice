@@ -28,7 +28,7 @@ class _OptionInkWellState extends State<OptionInkWell> {
         width: MediaQuery.of(context).size.width,
         padding: EdgeInsets.all(8),
         margin: EdgeInsets.all(8),
-        decoration: BoxDecoration(borderRadius: BorderRadius.circular(50), color: _color),
+        decoration: BoxDecoration(borderRadius: BorderRadius.circular(10), color: _color),
         child: Text(widget.option),
       ),
     );
