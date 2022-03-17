@@ -20,7 +20,7 @@ class _OptionInkWellState extends State<OptionInkWell> {
           });
         } else {
           setState(() {
-            _color = Colors.pinkAccent;
+            _color = Colors.pink[100]!;
           });
         }
       },
