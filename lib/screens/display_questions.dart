@@ -36,7 +36,7 @@ class _DisplayQuestionsState extends State<DisplayQuestions> {
                   }
 
                   if (snapshot.connectionState == ConnectionState.waiting) {
-                    return Center(child: const CircularProgressIndicator());
+                    return Container(height: double.maxFinite, child: Center(child: const CircularProgressIndicator()));
                   }
 
                   return ListView(
