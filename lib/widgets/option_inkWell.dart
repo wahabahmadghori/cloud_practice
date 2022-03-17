@@ -11,15 +11,14 @@ class _OptionInkWellState extends State<OptionInkWell> {
   @override
   Widget build(BuildContext context) {
     bool _isCorrect = false;
-    return ElevatedButton(
-      onPressed: () {
-        _isCorrect = widget.option == widget.answer;
-      },
-      child: Container(
-        width: MediaQuery.of(context).size.width,
-        padding: EdgeInsets.all(8),
-        margin: EdgeInsets.all(8),
-        decoration: BoxDecoration(borderRadius: BorderRadius.circular(50), color: _isCorrect ? Colors.greenAccent : Colors.white),
+    return Container(
+      padding: EdgeInsets.all(8),
+      margin: EdgeInsets.all(8),
+      child: ElevatedButton(
+        style: ButtonStyle(shape: MaterialStateProperty.all<RoundedRectangleBorder>(RoundedRectangleBorder(borderRadius: BorderRadius.circular(18.0), side: BorderSide(color: Colors.red)))),
+        onPressed: () {
+          _isCorrect = widget.option == widget.answer;
+        },
         child: Text(widget.option),
       ),
     );
