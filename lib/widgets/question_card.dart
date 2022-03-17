@@ -15,7 +15,7 @@ class _QuestionCardState extends State<QuestionCard> {
     setState(() {
       _quizAttempt += 1;
     });
-    print(_quizAttempt);
+    //print(_quizAttempt);
   }
 
   @override
