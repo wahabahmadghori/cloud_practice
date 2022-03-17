@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'add_question.dart';
 import '../services/userdb.dart';
 import '../widgets/question_card.dart';
+import '../custom_shapes/quiz_shape.dart';
 
 class DisplayQuestions extends StatefulWidget {
   @override
@@ -22,25 +23,37 @@ class _DisplayQuestionsState extends State<DisplayQuestions> {
         title: Container(),
       ),
       body: SafeArea(
-        child: StreamBuilder<QuerySnapshot>(
-          stream: questions.snapshots(),
-          builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
-            if (snapshot.hasError) {
-              return const Text('Something went wrong');
-            }
+        child: Column(
+          children: [
+            CustomPaint(
+              child: Container(
+                width: 300,
+                height: 200,
+                color: Colors.amberAccent,
+              ),
+              foregroundPainter: QuizLogo(),
+            ),
+            StreamBuilder<QuerySnapshot>(
+              stream: questions.snapshots(),
+              builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
+                if (snapshot.hasError) {
+                  return const Text('Something went wrong');
+                }
 
-            if (snapshot.connectionState == ConnectionState.waiting) {
-              return const CircularProgressIndicator();
-            }
+                if (snapshot.connectionState == ConnectionState.waiting) {
+                  return Center(child: const CircularProgressIndicator());
+                }
 
-            return ListView(
-              shrinkWrap: true,
-              children: snapshot.data!.docs.map((DocumentSnapshot document) {
-                Map<String, dynamic> data = document.data()! as Map<String, dynamic>;
-                return QuestionCard(data: data);
-              }).toList(),
-            );
-          },
+                return ListView(
+                  shrinkWrap: true,
+                  children: snapshot.data!.docs.map((DocumentSnapshot document) {
+                    Map<String, dynamic> data = document.data()! as Map<String, dynamic>;
+                    return QuestionCard(data: data);
+                  }).toList(),
+                );
+              },
+            ),
+          ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
