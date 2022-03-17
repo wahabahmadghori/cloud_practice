@@ -12,6 +12,7 @@ class _OptionInkWellState extends State<OptionInkWell> {
   Widget build(BuildContext context) {
     bool _isCorrect = false;
     return Container(
+      width: MediaQuery.of(context).size.width,
       padding: EdgeInsets.all(8),
       margin: EdgeInsets.all(8),
       child: ElevatedButton(
