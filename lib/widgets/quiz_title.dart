@@ -15,7 +15,7 @@ class QuizTitle extends StatelessWidget {
         ),
         Text(
           'Quiz 10',
-          style: TextStyle(fontSize: 28),
+          style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold, fontStyle: FontStyle.italic),
         )
       ],
     );
