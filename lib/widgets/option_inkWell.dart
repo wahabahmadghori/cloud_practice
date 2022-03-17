@@ -13,14 +13,21 @@ class _OptionInkWellState extends State<OptionInkWell> {
     bool _isCorrect = false;
     return Container(
       width: MediaQuery.of(context).size.width,
-      padding: EdgeInsets.all(8),
-      margin: EdgeInsets.all(8),
       child: ElevatedButton(
-        style: ButtonStyle(shape: MaterialStateProperty.all<RoundedRectangleBorder>(RoundedRectangleBorder(borderRadius: BorderRadius.circular(18.0), side: BorderSide(color: Colors.red)))),
+        style: ElevatedButton.styleFrom(
+          primary: Colors.white,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(18.0),
+            side: BorderSide(color: Colors.red),
+          ),
+        ),
         onPressed: () {
           _isCorrect = widget.option == widget.answer;
         },
-        child: Text(widget.option),
+        child: Text(
+          widget.option,
+          style: TextStyle(color: Colors.black54),
+        ),
       ),
     );
   }
