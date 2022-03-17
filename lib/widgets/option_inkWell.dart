@@ -4,21 +4,19 @@ class OptionInkWell extends StatefulWidget {
   final String option;
   final String answer;
   final VoidCallback onAttemptSelected;
-  const OptionInkWell({Key? key, required this.option, required this.answer, required this.onAttemptSelected}) : super(key: key);
+  final int optionSelect;
+  const OptionInkWell({Key? key, required this.option, required this.answer, required this.onAttemptSelected, required this.optionSelect}) : super(key: key);
   _OptionInkWellState createState() => _OptionInkWellState();
 }
 
 class _OptionInkWellState extends State<OptionInkWell> {
   Color _color = Colors.white;
-  int _optionSelect = 0;
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
         widget.onAttemptSelected();
-        if (_optionSelect < 1) return;
-        _optionSelect += 1;
-        print(_optionSelect);
+        if (widget.optionSelect == 1) return;
         if (widget.option == widget.answer) {
           setState(() {
             _color = Colors.greenAccent;

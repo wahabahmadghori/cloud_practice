@@ -36,26 +36,10 @@ class _QuestionCardState extends State<QuestionCard> {
               style: TextStyle(color: Colors.white),
             ),
           ),
-          OptionInkWell(
-            option: widget.data['optionA'],
-            answer: widget.data['answer'],
-            onAttemptSelected: this.QuizAttempt,
-          ),
-          OptionInkWell(
-            option: widget.data['optionB'],
-            answer: widget.data['answer'],
-            onAttemptSelected: this.QuizAttempt,
-          ),
-          OptionInkWell(
-            option: widget.data['optionC'],
-            answer: widget.data['answer'],
-            onAttemptSelected: this.QuizAttempt,
-          ),
-          OptionInkWell(
-            option: widget.data['optionD'],
-            answer: widget.data['answer'],
-            onAttemptSelected: this.QuizAttempt,
-          ),
+          OptionInkWell(option: widget.data['optionA'], answer: widget.data['answer'], onAttemptSelected: this.QuizAttempt, optionSelect: _quizAttempt),
+          OptionInkWell(option: widget.data['optionB'], answer: widget.data['answer'], onAttemptSelected: this.QuizAttempt, optionSelect: _quizAttempt),
+          OptionInkWell(option: widget.data['optionC'], answer: widget.data['answer'], onAttemptSelected: this.QuizAttempt, optionSelect: _quizAttempt),
+          OptionInkWell(option: widget.data['optionD'], answer: widget.data['answer'], onAttemptSelected: this.QuizAttempt, optionSelect: _quizAttempt),
         ]),
       ),
     );
