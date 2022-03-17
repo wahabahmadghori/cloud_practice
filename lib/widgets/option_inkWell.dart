@@ -10,25 +10,35 @@ class OptionInkWell extends StatefulWidget {
 class _OptionInkWellState extends State<OptionInkWell> {
   @override
   Widget build(BuildContext context) {
-    bool _isCorrect = false;
+    Color optionColor = Colors.white;
     return Container(
       width: MediaQuery.of(context).size.width,
+      margin: EdgeInsets.all(8),
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
-          primary: _isCorrect ? Colors.greenAccent : Colors.white,
+          primary: optionColor,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(18.0),
             side: BorderSide(color: Colors.red),
           ),
         ),
         onPressed: () {
-          setState(() {
-            _isCorrect = widget.option == widget.answer;
-          });
+          if (widget.option == widget.answer) {
+            setState(() {
+              optionColor = Colors.greenAccent;
+            });
+          } else {
+            setState(() {
+              optionColor = Colors.pinkAccent;
+            });
+          }
         },
-        child: Text(
-          widget.option,
-          style: TextStyle(color: Colors.black54),
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Text(
+            widget.option,
+            style: TextStyle(color: Colors.black54),
+          ),
         ),
       ),
     );
