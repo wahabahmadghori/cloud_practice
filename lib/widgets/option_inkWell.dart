@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 class OptionInkWell extends StatefulWidget {
   final String option;
   final String answer;
-  const OptionInkWell({Key? key, required this.option, required this.answer}) : super(key: key);
+  final VoidCallback onAttemptSelected;
+  const OptionInkWell({Key? key, required this.option, required this.answer, required this.onAttemptSelected}) : super(key: key);
   _OptionInkWellState createState() => _OptionInkWellState();
 }
 
@@ -13,6 +14,7 @@ class _OptionInkWellState extends State<OptionInkWell> {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
+        widget.onAttemptSelected();
         if (widget.option == widget.answer) {
           setState(() {
             _color = Colors.greenAccent;

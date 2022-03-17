@@ -9,6 +9,15 @@ class QuestionCard extends StatefulWidget {
 }
 
 class _QuestionCardState extends State<QuestionCard> {
+  int _quizAttempt = 0;
+
+  void QuizAttempt() {
+    setState(() {
+      _quizAttempt += 1;
+    });
+    print(_quizAttempt);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -27,10 +36,26 @@ class _QuestionCardState extends State<QuestionCard> {
               style: TextStyle(color: Colors.white),
             ),
           ),
-          OptionInkWell(option: widget.data['optionA'], answer: widget.data['answer']),
-          OptionInkWell(option: widget.data['optionB'], answer: widget.data['answer']),
-          OptionInkWell(option: widget.data['optionC'], answer: widget.data['answer']),
-          OptionInkWell(option: widget.data['optionD'], answer: widget.data['answer']),
+          OptionInkWell(
+            option: widget.data['optionA'],
+            answer: widget.data['answer'],
+            onAttemptSelected: this.QuizAttempt,
+          ),
+          OptionInkWell(
+            option: widget.data['optionB'],
+            answer: widget.data['answer'],
+            onAttemptSelected: this.QuizAttempt,
+          ),
+          OptionInkWell(
+            option: widget.data['optionC'],
+            answer: widget.data['answer'],
+            onAttemptSelected: this.QuizAttempt,
+          ),
+          OptionInkWell(
+            option: widget.data['optionD'],
+            answer: widget.data['answer'],
+            onAttemptSelected: this.QuizAttempt,
+          ),
         ]),
       ),
     );
