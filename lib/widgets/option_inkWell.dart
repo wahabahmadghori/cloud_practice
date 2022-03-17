@@ -8,9 +8,9 @@ class OptionInkWell extends StatefulWidget {
 }
 
 class _OptionInkWellState extends State<OptionInkWell> {
+  Color _color = Colors.white;
   @override
   Widget build(BuildContext context) {
-    Color _color = Colors.white;
     return InkWell(
       onTap: () {
         print(widget.option == widget.answer);
