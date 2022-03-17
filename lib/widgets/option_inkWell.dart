@@ -10,11 +10,14 @@ class OptionInkWell extends StatefulWidget {
 
 class _OptionInkWellState extends State<OptionInkWell> {
   Color _color = Colors.white;
+  int _optionSelect = 0;
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
         widget.onAttemptSelected();
+        if (_optionSelect == 1) return;
+        _optionSelect += 1;
         if (widget.option == widget.answer) {
           setState(() {
             _color = Colors.greenAccent;
