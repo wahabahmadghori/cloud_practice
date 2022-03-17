@@ -20,6 +20,7 @@ class _QuestionCardState extends State<QuestionCard> {
             width: MediaQuery.of(context).size.width,
             padding: EdgeInsets.all(8),
             margin: EdgeInsets.all(8),
+            decoration: BoxDecoration(color: Colors.blue[300]!),
             child: Text(widget.data['question']),
           ),
           OptionInkWell(option: widget.data['optionA'], answer: widget.data['answer']),

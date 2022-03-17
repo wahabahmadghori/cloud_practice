@@ -5,13 +5,22 @@ import 'add_question.dart';
 import '../services/userdb.dart';
 import '../widgets/question_card.dart';
 
-class DisplayQuestions extends StatelessWidget {
+class DisplayQuestions extends StatefulWidget {
+  @override
+  _DisplayQuestionsState createState() => _DisplayQuestionsState();
+}
+
+class _DisplayQuestionsState extends State<DisplayQuestions> {
   UserDb userDb = UserDb();
+
   @override
   Widget build(BuildContext context) {
     CollectionReference questions = FirebaseFirestore.instance.collection('questions');
 
     return Scaffold(
+      appBar: AppBar(
+        title: Container(),
+      ),
       body: SafeArea(
         child: StreamBuilder<QuerySnapshot>(
           stream: questions.snapshots(),
