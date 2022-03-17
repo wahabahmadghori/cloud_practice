@@ -10,22 +10,26 @@ class QuestionCard extends StatefulWidget {
 
 class _QuestionCardState extends State<QuestionCard> {
   int _quizAttempt = 0;
+  List<bool> options = [
+    false,
+    false,
+    false,
+    false,
+  ];
 
   void QuizAttempt() {
     setState(() {
       _quizAttempt += 1;
+      options[0] = widget.data['optionA'] == widget.data['answer'];
+      options[1] = widget.data['optionB'] == widget.data['answer'];
+      options[2] = widget.data['optionC'] == widget.data['answer'];
+      options[3] = widget.data['optionD'] == widget.data['answer'];
     });
     //print(_quizAttempt);
   }
 
   @override
   Widget build(BuildContext context) {
-    List<bool> options = [
-      widget.data['optionA'] == widget.data['answer'],
-      widget.data['optionB'] == widget.data['answer'],
-      widget.data['optionC'] == widget.data['answer'],
-      widget.data['optionD'] == widget.data['answer'],
-    ];
     return Card(
       clipBehavior: Clip.antiAlias,
       color: Colors.blue[50]!,
@@ -42,10 +46,34 @@ class _QuestionCardState extends State<QuestionCard> {
               style: TextStyle(color: Colors.white),
             ),
           ),
-          OptionInkWell(option: widget.data['optionA'], answer: widget.data['answer'], onAttemptSelected: this.QuizAttempt, optionSelect: _quizAttempt),
-          OptionInkWell(option: widget.data['optionB'], answer: widget.data['answer'], onAttemptSelected: this.QuizAttempt, optionSelect: _quizAttempt),
-          OptionInkWell(option: widget.data['optionC'], answer: widget.data['answer'], onAttemptSelected: this.QuizAttempt, optionSelect: _quizAttempt),
-          OptionInkWell(option: widget.data['optionD'], answer: widget.data['answer'], onAttemptSelected: this.QuizAttempt, optionSelect: _quizAttempt),
+          OptionInkWell(
+            option: widget.data['optionA'],
+            answer: widget.data['answer'],
+            onAttemptSelected: this.QuizAttempt,
+            optionSelect: _quizAttempt,
+            optionSelection: options[0],
+          ),
+          OptionInkWell(
+            option: widget.data['optionB'],
+            answer: widget.data['answer'],
+            onAttemptSelected: this.QuizAttempt,
+            optionSelect: _quizAttempt,
+            optionSelection: options[0],
+          ),
+          OptionInkWell(
+            option: widget.data['optionC'],
+            answer: widget.data['answer'],
+            onAttemptSelected: this.QuizAttempt,
+            optionSelect: _quizAttempt,
+            optionSelection: options[0],
+          ),
+          OptionInkWell(
+            option: widget.data['optionD'],
+            answer: widget.data['answer'],
+            onAttemptSelected: this.QuizAttempt,
+            optionSelect: _quizAttempt,
+            optionSelection: options[0],
+          ),
         ]),
       ),
     );
