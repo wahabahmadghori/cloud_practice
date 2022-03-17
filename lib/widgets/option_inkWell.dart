@@ -15,7 +15,7 @@ class _OptionInkWellState extends State<OptionInkWell> {
       width: MediaQuery.of(context).size.width,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
-          primary: Colors.white,
+          primary: _isCorrect ? Colors.greenAccent : Colors.white,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(18.0),
             side: BorderSide(color: Colors.red),
