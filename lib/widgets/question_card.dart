@@ -9,10 +9,10 @@ class QuestionCard extends StatefulWidget {
 }
 
 class _QuestionCardState extends State<QuestionCard> {
-  bool _isCorrect = false;
   @override
   Widget build(BuildContext context) {
     return Card(
+      color: Colors.blue[100]!,
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(children: [
@@ -33,6 +33,5 @@ class _QuestionCardState extends State<QuestionCard> {
         ]),
       ),
     );
-    ;
   }
 }
