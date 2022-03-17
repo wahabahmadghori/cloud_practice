@@ -25,7 +25,6 @@ class _DisplayQuestionsState extends State<DisplayQuestions> {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               QuizTitle(),
               StreamBuilder<QuerySnapshot>(
@@ -36,7 +35,7 @@ class _DisplayQuestionsState extends State<DisplayQuestions> {
                   }
 
                   if (snapshot.connectionState == ConnectionState.waiting) {
-                    return Container(height: double.maxFinite, child: Center(child: const CircularProgressIndicator()));
+                    return Container(height: MediaQuery.of(context).size.height, child: Center(child: const CircularProgressIndicator()));
                   }
 
                   return ListView(
