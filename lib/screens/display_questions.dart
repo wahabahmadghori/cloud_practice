@@ -23,37 +23,38 @@ class _DisplayQuestionsState extends State<DisplayQuestions> {
         title: Container(),
       ),
       body: SafeArea(
-        child: Column(
-          children: [
-            CustomPaint(
-              child: Container(
-                width: 300,
-                height: 200,
-                color: Colors.amberAccent,
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              CustomPaint(
+                child: Container(
+                  width: 100,
+                  height: 100,
+                ),
+                foregroundPainter: QuizLogo(),
               ),
-              foregroundPainter: QuizLogo(),
-            ),
-            StreamBuilder<QuerySnapshot>(
-              stream: questions.snapshots(),
-              builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
-                if (snapshot.hasError) {
-                  return const Text('Something went wrong');
-                }
+              StreamBuilder<QuerySnapshot>(
+                stream: questions.snapshots(),
+                builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
+                  if (snapshot.hasError) {
+                    return const Text('Something went wrong');
+                  }
 
-                if (snapshot.connectionState == ConnectionState.waiting) {
-                  return Center(child: const CircularProgressIndicator());
-                }
+                  if (snapshot.connectionState == ConnectionState.waiting) {
+                    return Center(child: const CircularProgressIndicator());
+                  }
 
-                return ListView(
-                  shrinkWrap: true,
-                  children: snapshot.data!.docs.map((DocumentSnapshot document) {
-                    Map<String, dynamic> data = document.data()! as Map<String, dynamic>;
-                    return QuestionCard(data: data);
-                  }).toList(),
-                );
-              },
-            ),
-          ],
+                  return ListView(
+                    shrinkWrap: true,
+                    children: snapshot.data!.docs.map((DocumentSnapshot document) {
+                      Map<String, dynamic> data = document.data()! as Map<String, dynamic>;
+                      return QuestionCard(data: data);
+                    }).toList(),
+                  );
+                },
+              ),
+            ],
+          ),
         ),
       ),
       floatingActionButton: FloatingActionButton(
