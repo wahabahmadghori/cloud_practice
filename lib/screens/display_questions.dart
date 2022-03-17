@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'add_question.dart';
 import '../services/userdb.dart';
 import '../widgets/question_card.dart';
-import '../custom_shapes/quiz_shape.dart';
+import '../widgets/quiz_title.dart';
 
 class DisplayQuestions extends StatefulWidget {
   @override
@@ -25,14 +25,9 @@ class _DisplayQuestionsState extends State<DisplayQuestions> {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              CustomPaint(
-                child: Container(
-                  width: 100,
-                  height: 100,
-                ),
-                foregroundPainter: QuizLogo(),
-              ),
+              QuizTitle(),
               StreamBuilder<QuerySnapshot>(
                 stream: questions.snapshots(),
                 builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
