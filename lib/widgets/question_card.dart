@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 import 'option_inkWell.dart';
@@ -51,28 +52,32 @@ class _QuestionCardState extends State<QuestionCard> {
             answer: widget.data['answer'],
             onAttemptSelected: this.QuizAttempt,
             optionSelect: _quizAttempt,
-            optionSelection: options[0],
+            optionSelection: options,
+            index: 0,
           ),
           OptionInkWell(
             option: widget.data['optionB'],
             answer: widget.data['answer'],
             onAttemptSelected: this.QuizAttempt,
             optionSelect: _quizAttempt,
-            optionSelection: options[0],
+            optionSelection: options,
+            index: 1,
           ),
           OptionInkWell(
             option: widget.data['optionC'],
             answer: widget.data['answer'],
             onAttemptSelected: this.QuizAttempt,
             optionSelect: _quizAttempt,
-            optionSelection: options[0],
+            optionSelection: options,
+            index: 2,
           ),
           OptionInkWell(
             option: widget.data['optionD'],
             answer: widget.data['answer'],
             onAttemptSelected: this.QuizAttempt,
             optionSelect: _quizAttempt,
-            optionSelection: options[0],
+            optionSelection: options,
+            index: 3,
           ),
         ]),
       ),

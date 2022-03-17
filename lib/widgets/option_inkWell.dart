@@ -4,9 +4,11 @@ class OptionInkWell extends StatefulWidget {
   final String option;
   final String answer;
   final VoidCallback onAttemptSelected;
-  final bool optionSelection;
+
+  final List<bool> optionSelection;
   final int optionSelect;
-  const OptionInkWell({Key? key, required this.option, required this.answer, required this.onAttemptSelected, required this.optionSelection, required this.optionSelect}) : super(key: key);
+  final int index;
+  const OptionInkWell({Key? key, required this.option, required this.answer, required this.onAttemptSelected, required this.optionSelection, required this.index, required this.optionSelect}) : super(key: key);
   _OptionInkWellState createState() => _OptionInkWellState();
 }
 
@@ -33,7 +35,7 @@ class _OptionInkWellState extends State<OptionInkWell> {
         width: MediaQuery.of(context).size.width,
         padding: EdgeInsets.all(8),
         margin: EdgeInsets.all(8),
-        decoration: BoxDecoration(borderRadius: BorderRadius.circular(10), color: widget.optionSelection ? Colors.greenAccent : _color),
+        decoration: BoxDecoration(borderRadius: BorderRadius.circular(10), color: widget.optionSelection[widget.index] ? Colors.greenAccent : _color),
         child: Text(widget.option),
       ),
     );
