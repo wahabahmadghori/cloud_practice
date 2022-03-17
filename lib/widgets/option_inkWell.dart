@@ -22,7 +22,9 @@ class _OptionInkWellState extends State<OptionInkWell> {
           ),
         ),
         onPressed: () {
-          _isCorrect = widget.option == widget.answer;
+          setState(() {
+            _isCorrect = widget.option == widget.answer;
+          });
         },
         child: Text(
           widget.option,
