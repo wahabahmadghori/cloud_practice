@@ -20,6 +20,12 @@ class _QuestionCardState extends State<QuestionCard> {
 
   @override
   Widget build(BuildContext context) {
+    List<bool> options = [
+      widget.data['optionA'] == data['answer'],
+      false,
+      false,
+      false
+    ];
     return Card(
       clipBehavior: Clip.antiAlias,
       color: Colors.blue[50]!,

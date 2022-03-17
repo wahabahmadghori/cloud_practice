@@ -17,6 +17,7 @@ class _OptionInkWellState extends State<OptionInkWell> {
       onTap: () {
         widget.onAttemptSelected();
         if (widget.optionSelect > 0) return;
+
         if (widget.option == widget.answer) {
           setState(() {
             _color = Colors.greenAccent;
