@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import 'add_question.dart';
 import '../services/userdb.dart';
+import '../widgets/question_card.dart';
 
 class DisplayQuestions extends StatelessWidget {
   UserDb userDb = UserDb();
@@ -27,61 +28,7 @@ class DisplayQuestions extends StatelessWidget {
               shrinkWrap: true,
               children: snapshot.data!.docs.map((DocumentSnapshot document) {
                 Map<String, dynamic> data = document.data()! as Map<String, dynamic>;
-                return Card(
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Column(children: [
-                      Container(
-                        width: MediaQuery.of(context).size.width,
-                        padding: EdgeInsets.all(8),
-                        margin: EdgeInsets.all(8),
-                        child: Text(data['question']),
-                      ),
-                      InkWell(
-                        onTap: () {},
-                        child: Container(
-                          width: MediaQuery.of(context).size.width,
-                          padding: EdgeInsets.all(8),
-                          margin: EdgeInsets.all(8),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(50),
-                          ),
-                          child: Text(data['optionA']),
-                        ),
-                      ),
-                      InkWell(
-                        onTap: () {},
-                        child: Container(
-                          padding: EdgeInsets.all(8),
-                          margin: EdgeInsets.all(8),
-                          width: MediaQuery.of(context).size.width,
-                          decoration: BoxDecoration(borderRadius: BorderRadius.circular(50), color: data['optionB'] == data['answer'] ? Colors.greenAccent : Colors.redAccent),
-                          child: Text(data['optionB']),
-                        ),
-                      ),
-                      InkWell(
-                        onTap: () {},
-                        child: Container(
-                          width: MediaQuery.of(context).size.width,
-                          padding: EdgeInsets.all(8),
-                          margin: EdgeInsets.all(8),
-                          decoration: BoxDecoration(borderRadius: BorderRadius.circular(50), color: data['optionC'] == data['answer'] ? Colors.greenAccent : Colors.redAccent),
-                          child: Text(data['optionC']),
-                        ),
-                      ),
-                      InkWell(
-                        onTap: () {},
-                        child: Container(
-                          width: MediaQuery.of(context).size.width,
-                          padding: EdgeInsets.all(8),
-                          margin: EdgeInsets.all(8),
-                          decoration: BoxDecoration(borderRadius: BorderRadius.circular(50), color: data['optionD'] == data['answer'] ? Colors.greenAccent : Colors.redAccent),
-                          child: Text(data['optionD']),
-                        ),
-                      ),
-                    ]),
-                  ),
-                );
+                return QuestionCard(data: data);
               }).toList(),
             );
           },
