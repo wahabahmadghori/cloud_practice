@@ -13,6 +13,13 @@ class QuestionCard extends StatefulWidget {
 class _QuestionCardState extends State<QuestionCard> {
   int _quizAttempt = 0;
   bool _answerShow = false;
+  CustomPaint _answerCustomPaint = CustomPaint(
+    child: Container(
+      width: 42,
+      height: 42,
+    ),
+    painter: CorrectShapePainter(),
+  );
   List<bool> options = [
     false,
     false,
@@ -29,6 +36,23 @@ class _QuestionCardState extends State<QuestionCard> {
       options[1] = widget.data['optionB'] == widget.data['answer'];
       options[2] = widget.data['optionC'] == widget.data['answer'];
       options[3] = widget.data['optionD'] == widget.data['answer'];
+      if (options[4]) {
+        _answerCustomPaint = CustomPaint(
+          child: Container(
+            width: 42,
+            height: 42,
+          ),
+          painter: CorrectShapePainter(),
+        );
+      } else {
+        _answerCustomPaint = CustomPaint(
+          child: Container(
+            width: 42,
+            height: 42,
+          ),
+          painter: WrongShapePainter(),
+        );
+      }
     });
     //print(_quizAttempt);
   }
@@ -52,19 +76,16 @@ class _QuestionCardState extends State<QuestionCard> {
                   decoration: BoxDecoration(color: Colors.blue, borderRadius: BorderRadius.circular(10)),
                   child: Text(
                     widget.data['question'],
-                    style: TextStyle(color: Colors.white),
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 18,
+                    ),
                   ),
                 ),
               ),
               Flexible(
                 flex: 1,
-                child: CustomPaint(
-                  child: Container(
-                    width: 42,
-                    height: 42,
-                  ),
-                  painter: CorrectShapePainter(),
-                ),
+                child: _answerShow ? _answerCustomPaint : _answerCustomPaint,
               ),
             ],
           ),
