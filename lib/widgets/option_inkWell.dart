@@ -18,7 +18,6 @@ class _OptionInkWellState extends State<OptionInkWell> {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        widget.onAttemptSelected();
         if (widget.optionSelect > 0) return;
 
         if (widget.option == widget.answer) {
@@ -30,6 +29,10 @@ class _OptionInkWellState extends State<OptionInkWell> {
             _color = Colors.pink[100]!;
           });
         }
+
+        Future.delayed(Duration(seconds: 1), () {
+          widget.onAttemptSelected();
+        });
       },
       child: Container(
         width: MediaQuery.of(context).size.width,
