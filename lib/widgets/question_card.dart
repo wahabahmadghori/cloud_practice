@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import '../custom_shapes/correct_shape.dart';
 import '../custom_shapes/wrong_shape.dart';
+import '../custom_shapes/shape_placeholder.dart';
 import 'option_inkWell.dart';
 
 class QuestionCard extends StatefulWidget {
@@ -18,7 +19,7 @@ class _QuestionCardState extends State<QuestionCard> {
       width: 42,
       height: 42,
     ),
-    painter: CorrectShapePainter(),
+    painter: ShapeHolder(),
   );
   List<bool> options = [
     false,
