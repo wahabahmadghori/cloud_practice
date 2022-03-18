@@ -23,12 +23,12 @@ class _OptionInkWellState extends State<OptionInkWell> {
         if (widget.option == widget.answer) {
           setState(() {
             _color = Colors.greenAccent;
-            widget.optionSelection[widget.index + 1] = true;
+            widget.optionSelection[4] = true;
           });
         } else {
           setState(() {
             _color = Colors.pink[100]!;
-            widget.optionSelection[widget.index + 1] = false;
+            widget.optionSelection[4] = false;
           });
         }
 
