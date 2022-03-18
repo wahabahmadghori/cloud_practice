@@ -44,7 +44,7 @@ class _QuestionCardState extends State<QuestionCard> {
           Row(
             children: [
               Flexible(
-                flex: 5,
+                flex: 6,
                 child: Container(
                   width: MediaQuery.of(context).size.width,
                   padding: EdgeInsets.all(8),
@@ -60,8 +60,8 @@ class _QuestionCardState extends State<QuestionCard> {
                 flex: 1,
                 child: CustomPaint(
                   child: Container(
-                    width: 28,
-                    height: 28,
+                    width: 42,
+                    height: 42,
                   ),
                   painter: CorrectShapePainter(),
                 ),
