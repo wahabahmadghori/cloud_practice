@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-
+import '../custom_shapes/correct_shape.dart';
+import '../custom_shapes/wrong_shape.dart';
 import 'option_inkWell.dart';
 
 class QuestionCard extends StatefulWidget {
@@ -11,16 +12,19 @@ class QuestionCard extends StatefulWidget {
 
 class _QuestionCardState extends State<QuestionCard> {
   int _quizAttempt = 0;
+  bool _answerShow = false;
   List<bool> options = [
     false,
     false,
     false,
     false,
+    false
   ];
 
   void QuizAttempt() {
     setState(() {
       _quizAttempt += 1;
+      _answerShow = true;
       options[0] = widget.data['optionA'] == widget.data['answer'];
       options[1] = widget.data['optionB'] == widget.data['answer'];
       options[2] = widget.data['optionC'] == widget.data['answer'];
@@ -37,15 +41,40 @@ class _QuestionCardState extends State<QuestionCard> {
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(children: [
-          Container(
-            width: MediaQuery.of(context).size.width,
-            padding: EdgeInsets.all(8),
-            margin: EdgeInsets.all(8),
-            decoration: BoxDecoration(color: Colors.blue, borderRadius: BorderRadius.circular(10)),
-            child: Text(
-              widget.data['question'],
-              style: TextStyle(color: Colors.white),
-            ),
+          Row(
+            children: [
+              Flexible(
+                flex: 4,
+                child: Container(
+                  width: MediaQuery.of(context).size.width,
+                  padding: EdgeInsets.all(8),
+                  margin: EdgeInsets.all(8),
+                  decoration: BoxDecoration(color: Colors.blue, borderRadius: BorderRadius.circular(10)),
+                  child: Text(
+                    widget.data['question'],
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ),
+              ),
+              Flexible(
+                flex: 1,
+                child: _answerShow && options[4]
+                    ? CustomPaint(
+                        child: Container(
+                          width: 28,
+                          height: 28,
+                        ),
+                        foregroundPainter: CorrectShapePainter(),
+                      )
+                    : CustomPaint(
+                        child: Container(
+                          width: 28,
+                          height: 28,
+                        ),
+                        foregroundPainter: WrongShapePainter(),
+                      ),
+              ),
+            ],
           ),
           OptionInkWell(
             option: widget.data['optionA'],
