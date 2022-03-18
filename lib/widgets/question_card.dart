@@ -37,7 +37,7 @@ class _QuestionCardState extends State<QuestionCard> {
       options[1] = widget.data['optionB'] == widget.data['answer'];
       options[2] = widget.data['optionC'] == widget.data['answer'];
       options[3] = widget.data['optionD'] == widget.data['answer'];
-      if (true) {
+      if (options[4]) {
         _answerCustomPaint = CustomPaint(
           child: Container(
             width: 42,
@@ -86,7 +86,7 @@ class _QuestionCardState extends State<QuestionCard> {
               ),
               Flexible(
                 flex: 1,
-                child: _answerShow ? _answerCustomPaint : _answerCustomPaint,
+                child: _answerCustomPaint,
               ),
             ],
           ),
