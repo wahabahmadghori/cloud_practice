@@ -30,7 +30,7 @@ class _OptionInkWellState extends State<OptionInkWell> {
           });
         }
 
-        Future.delayed(Duration(seconds: 1), () {
+        Future.delayed(Duration(milliseconds: 500), () {
           widget.onAttemptSelected();
         });
       },
