@@ -17,6 +17,7 @@ class _DisplayQuestionsState extends State<DisplayQuestions> {
   @override
   Widget build(BuildContext context) {
     CollectionReference questions = FirebaseFirestore.instance.collection('questions');
+    ScrollController _scrollController = ScrollController();
 
     return Scaffold(
       appBar: AppBar(
@@ -38,12 +39,17 @@ class _DisplayQuestionsState extends State<DisplayQuestions> {
                     return Container(height: MediaQuery.of(context).size.height, child: Center(child: const CircularProgressIndicator()));
                   }
 
-                  return ListView(
-                    shrinkWrap: true,
-                    children: snapshot.data!.docs.map((DocumentSnapshot document) {
-                      Map<String, dynamic> data = document.data()! as Map<String, dynamic>;
-                      return QuestionCard(data: data);
-                    }).toList(),
+                  return Scrollbar(
+                    controller: _scrollController,
+                    isAlwaysShown: true,
+                    child: ListView(
+                      shrinkWrap: true,
+                      controller: _scrollController,
+                      children: snapshot.data!.docs.map((DocumentSnapshot document) {
+                        Map<String, dynamic> data = document.data()! as Map<String, dynamic>;
+                        return QuestionCard(data: data);
+                      }).toList(),
+                    ),
                   );
                 },
               ),
