@@ -40,8 +40,8 @@ class _QuestionCardState extends State<QuestionCard> {
       if (options[4]) {
         _answerCustomPaint = CustomPaint(
           child: Container(
-            width: 42,
-            height: 42,
+            width: 50,
+            height: 50,
           ),
           painter: CorrectShapePainter(),
         );
