@@ -43,7 +43,7 @@ class _QuestionCardState extends State<QuestionCard> {
             width: 42,
             height: 42,
           ),
-          painter: WrongShapePainter(),
+          painter: CorrectShapePainter(),
         );
       } else {
         _answerCustomPaint = CustomPaint(
